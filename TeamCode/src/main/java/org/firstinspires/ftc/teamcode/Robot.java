@@ -42,15 +42,26 @@ public class Robot {
     }
 
     public void moveDis(double power, int dis){
-        r1.setTargetPosition(dis);
-        r2.setTargetPosition(dis);
-        r1.setPower(1);
-        r1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        r2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        while(r1.isBusy()){}
-        r1.setPower(0);
-        r2.setPower(0);
         r1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         r2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        l1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        l2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        r1.setTargetPosition(dis);
+        r2.setTargetPosition(dis);
+        l1.setTargetPosition(-dis);
+        l2.setTargetPosition(-dis);
+        r1.setPower(power);
+        r2.setPower(power);
+        l2.setPower(power);
+        l1.setPower(power);
+        r1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        r2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        l1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        l2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        while(r1.isBusy()){}
+//        r1.setPower(0);
+//        r2.setPower(0);
+//        l1.setPower(0);
+//        l2.setPower(0);
     }
 }
