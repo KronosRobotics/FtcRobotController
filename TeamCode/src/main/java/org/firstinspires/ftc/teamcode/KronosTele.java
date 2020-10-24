@@ -34,6 +34,14 @@ public class KronosTele extends OpMode {
     @Override
     public void loop() {
         bot.move(gamepad1.right_stick_y, gamepad1.left_stick_x);
+        //when the a button is pressed turn the servo
+        if(gamepad1.a){
+            //true then button has been pressed
+            bot.moveArm(0.5);
+        }
+        if(gamepad1.b){
+            bot.moveArm(0);
+        }
     }
 
     /*
